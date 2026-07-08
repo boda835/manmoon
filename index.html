@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Will you love me?</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    overflow: hidden;
+  }
+  h1 {
+    color: #6b1e3c;
+    font-size: 2.2em;
+    text-align: center;
+    padding: 0 20px;
+  }
+  .btn-row {
+    position: relative;
+    margin-top: 40px;
+    width: 300px;
+    height: 60px;
+  }
+  button {
+    padding: 14px 30px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  #yesBtn {
+    background: #ff4b7d;
+    color: white;
+    position: absolute;
+    left: 30px;
+  }
+  #noBtn {
+    background: #eee;
+    color: #444;
+    position: absolute;
+    left: 170px;
+    transition: left 0.2s ease, top 0.2s ease;
+  }
+  #message {
+    margin-top: 30px;
+    font-size: 1.5em;
+    color: #6b1e3c;
+    font-weight: bold;
+    min-height: 40px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Can you please love me? 💕</h1>
+
+<div class="btn-row">
+  <button id="yesBtn" onclick="sayYes()">Yes</button>
+  <button id="noBtn" onmouseover="runAway()" ontouchstart="runAway()">No</button>
+</div>
+
+<div id="message"></div>
+
+<script>
+  const noBtn = document.getElementById('noBtn');
+  const container = document.querySelector('.btn-row');
+
+  function runAway() {
+    const maxX = window.innerWidth - 120;
+    const maxY = window.innerHeight - 80;
+    const newX = Math.random() * maxX;
+    const newY = Math.random() * maxY;
+    noBtn.style.position = 'fixed';
+    noBtn.style.left = newX + 'px';
+    noBtn.style.top = newY + 'px';
+  }
+
+  function sayYes() {
+    document.getElementById('message').textContent = "Yay! I love you too! 🥰❤️";
+  }
+</script>
+
+</body>
+</html>
